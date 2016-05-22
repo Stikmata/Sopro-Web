@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Sopro.Models.Vertrag>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/bootstrap.css" rel="stylesheet">
+
+    <title>Index</title>
+</head>
+<body>
+    <container>
+        <dic class="row">
+            <div class="col col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs">
+                            <li role="presentation">@Html.ActionLink("Home", "Home")</li>
+                            <li role="presentation" class="active">@Html.ActionLink("Verträge", "overview")</li>
+                            <li role="presentation">@Html.ActionLink("Aufgaben", "Aufgaben")</li>
+                            <li role="presentation">@Html.ActionLink("Admin", "Admin")</li>
+                            <li role="presentation" style="float:right"><input class="btn btn-info" id="Suchen_senden" type="submit" value="Suchen" /></li>
+                            <li role="presentation" style="float:right"><input id="Suchen" type="text" class="form-control" placeholder="Suche" /></li>
+
+                        </ul>
+                        <br />
+                        <span style="float: right">
+                            <input id="sucherErweitert" type="checkbox" />
+                            Erweiterte Suche
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </dic><!--ende header-->
+        
+        <content class="row">
+            <div class="col col-md-8 col-md-offset-2">
+                <p>
+                    <a href="@Url.Action("create", "Vertrags")" class="btn btn-info">Neuen Vertrag anlegen</a>
+                    <a href="#" class="btn btn-info">Auswertung</a>
+                    <span style="float: right">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox1" value="option1"> unvollst.
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox2" value="option2"> 
+                            <select id="Select1">
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            </select> Typ 1
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox3" value="option3"> Typ 2
+                        </label>
+                        <br />
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox1" value="option1"> unvollst.
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox3" value="option3">
+                            <select id="Select2">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                            </select> Typ 2
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox2" value="option2"> Typ 1
+                        </label>
+                        
+                    </span>
+                    
+
+                </p>
+                <table class="table">
+                    <tr>
+                        <th>
+                             Name <span class="glyphicon glyphicon-chevron-down">&nbsp; </span>
+                        </th>
+                        <th>
+                            Typ
+                        </th>
+                        <th>
+                            Untertyp
+                        </th>
+                        <th>
+                            Erstellt am
+                        </th>
+                        <th>
+                            Beginn
+                        </th>
+                        <th>
+                            Ende
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+            {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Typ)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Typ_2)
+                            </td>
+                            <td>
+                                @{
+                                    var format = "MM/dd/yyyy";
+                                    DateTime datum = item.Datum;
+                                    var str = datum.ToString(format);
+                                }
+                               @str
+                            </td>
+                            <td>
+                                @{
+                                    datum = item.Beginn;
+                                    str = datum.ToString(format);
+                                }
+                                @str
+                            </td>
+                            <td>
+                                @{
+                                    datum = item.Ende;
+                                    str = datum.ToString(format);
+                                }
+                                @str
+                            </td>
+                            <td>
+                                @Html.ActionLink("Ändern", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Löschen", "Delete", new { id = item.Id })
+                            </td>
+                        </tr>
+                                    }
+
+                </table>
+            </div>
+            
+            
+        </content>
+       
+    </container>
+    
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+    <link href="~/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+    <dic class="row">
+        <div class="col col-md-10 col-md-offset-1">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active">@Html.ActionLink("Home", "Home")</li>
+                        <li role="presentation">@Html.ActionLink("Verträge", "overview")</li>
+                        <li role="presentation">@Html.ActionLink("Aufgaben", "Aufgaben")</li>
+                        <li role="presentation">@Html.ActionLink("Admin", "Admin")</li>
+                        <li role="presentation" style="float:right"><input class="btn btn-info" id="Suchen_senden" type="submit" value="Suchen" /></li>
+                        <li role="presentation" style="float:right"><input id="Suchen" type="text" class="form-control" placeholder="Suche" /></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </dic><!--ende header-->
+    <div class="row">
+        <div class="col col-md-10 col-md-offset-1">
+            <div class="col col-md-6">
+                <table class="table">
+                    <thead>Liste 1</thead>
+                    <tr>
+                        <th>Vertragsname</th>
+                        <th>Typ1</th>
+                        <th>Typ2</th>
+                    </tr>
+                    <tr>
+                        <td>Vertrag 1</td>
+                        <td>Handyvertrag</td>
+                        <td>Persönlich</td>
+                    </tr>
+                    <tr>
+                        <td>Vertrag 2</td>
+                        <td>Mietvertrag</td>
+                        <td>Persönlich</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col col-md-6">
+                <table class="table">
+                    <thead>Liste 2</thead>
+                    <tr>
+                        <th>Vertragsname</th>
+                        <th>Typ1</th>
+                        <th>Typ2</th>
+                    </tr>
+                    <tr>
+                        <td>Vertrag 1</td>
+                        <td>Handyvertrag</td>
+                        <td>Persönlich</td>
+                    </tr>
+                    <tr>
+                        <td>Vertrag 2</td>
+                        <td>Mietvertrag</td>
+                        <td>Persönlich</td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div><!--Ende Content-->
+    </div>
+        
+    
+</body>
+</html>

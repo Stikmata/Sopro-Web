@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/bootstrap.css" rel="stylesheet">
+    <title>Startseite</title>
+</head>
+<body>
+    <container class="row">
+        <header class="col col-md-8 col-md-offset-2">
+            <h1>Über den Link gehts zur Vetragsliste</h1>
+        </header>
+        <content class="col col-md-8 col-md-offset-2">
+            <p>
+                @Html.ActionLink("Zur Übersicht", "../Vertrags/Home")
+            </p>
+        </content>
+
+    </container>
+    
+</body>
+</html>
